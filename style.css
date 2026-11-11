@@ -1,0 +1,382 @@
+:root {
+  color-scheme: light;
+  --paper: #f3efe6;
+  --paper-light: #fbf9f4;
+  --ink: #292a25;
+  --muted: #65665e;
+  --green: #30443a;
+  --green-light: #425b4b;
+  --clay: #9b5138;
+  --gold: #c49a55;
+  --line: #d9d1c3;
+  --hero-text: #f5f0e5;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #202620;
+    --paper-light: #282f28;
+    --ink: #eee9dc;
+    --muted: #b6b5a9;
+    --green: #b8c6ae;
+    --green-light: #d1d9c6;
+    --clay: #df9a76;
+    --gold: #d8b776;
+    --line: #41483e;
+    --hero-text: #f5f0e5;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #202620;
+  --paper-light: #282f28;
+  --ink: #eee9dc;
+  --muted: #b6b5a9;
+  --green: #b8c6ae;
+  --green-light: #d1d9c6;
+  --clay: #df9a76;
+  --gold: #d8b776;
+  --line: #41483e;
+  --hero-text: #f5f0e5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font:
+    400 1.08rem/1.75 "Alegreya",
+    Georgia,
+    "Times New Roman",
+    serif;
+}
+
+.wrap {
+  width: min(100% - 3rem, 68rem);
+  margin-inline: auto;
+}
+
+header.hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 82% 30%, rgb(196 154 85 / 12%), transparent 34%),
+    var(--green);
+  color: var(--hero-text);
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(15rem, 0.8fr);
+  align-items: center;
+  gap: 2rem;
+  min-height: 28rem;
+  padding-block: 4.5rem 3.75rem;
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  color: #e2c58f;
+  font:
+    600 0.78rem/1.4 "Source Sans 3",
+    system-ui,
+    sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0 0 1.15rem;
+  font:
+    700 clamp(3.2rem, 7vw, 5.7rem)/0.98 "Alegreya",
+    Georgia,
+    serif;
+  letter-spacing: -0.035em;
+}
+
+.hero-copy {
+  max-width: 39rem;
+  margin: 0;
+  color: #e9e5d9;
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  line-height: 1.55;
+}
+
+.hero-art {
+  display: block;
+  width: min(100%, 25rem);
+  justify-self: end;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--paper) 94%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+nav .wrap {
+  display: flex;
+  gap: 1.65rem;
+  overflow-x: auto;
+  padding-block: 0.9rem;
+  scrollbar-width: thin;
+  white-space: nowrap;
+  font:
+    600 0.94rem/1.3 "Source Sans 3",
+    system-ui,
+    sans-serif;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  color: var(--clay);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+nav a:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+main.wrap {
+  max-width: 61rem;
+}
+
+section {
+  padding: 4.25rem 0 0.5rem;
+  scroll-margin-top: 4rem;
+}
+
+section + section {
+  margin-top: 2.4rem;
+  border-top: 1px solid var(--line);
+}
+
+h2 {
+  max-width: 43rem;
+  margin: 0 0 1.35rem;
+  color: var(--green);
+  font:
+    700 clamp(2rem, 4vw, 2.8rem)/1.12 "Alegreya",
+    Georgia,
+    serif;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  margin: 2rem 0 0.4rem;
+  color: var(--clay);
+  font:
+    700 1.35rem/1.3 "Alegreya",
+    Georgia,
+    serif;
+}
+
+p {
+  max-width: 48rem;
+  margin: 0 0 1.2rem;
+}
+
+#vynyknennia > p:first-of-type {
+  font-size: 1.18rem;
+}
+
+strong {
+  font-weight: 700;
+}
+
+.timeline {
+  max-width: 49rem;
+  margin: 2rem 0 0.5rem;
+  padding: 0 0 0 1.5rem;
+  border-left: 1px solid var(--gold);
+  list-style: none;
+}
+
+.timeline li {
+  position: relative;
+  margin: 0 0 1.35rem;
+}
+
+.timeline li::before {
+  position: absolute;
+  top: 0.72rem;
+  left: calc(-1.5rem - 4px);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--clay);
+  content: "";
+}
+
+.timeline b {
+  display: block;
+  color: var(--clay);
+  font:
+    600 0.9rem/1.5 "Source Sans 3",
+    system-ui,
+    sans-serif;
+}
+
+dl.facts {
+  max-width: 51rem;
+  margin: 1.8rem 0 0.5rem;
+}
+
+dl.facts div {
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 1fr);
+  gap: 0.4rem 1.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--line);
+}
+
+dl.facts div:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+dl.facts dt {
+  color: var(--clay);
+  font-weight: 700;
+}
+
+dl.facts dd {
+  margin: 0;
+}
+
+details {
+  max-width: 51rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--line);
+}
+
+details:last-of-type {
+  border-bottom: 1px solid var(--line);
+}
+
+summary {
+  position: relative;
+  padding-right: 2rem;
+  color: var(--green);
+  cursor: pointer;
+  font-weight: 700;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  position: absolute;
+  top: 0;
+  right: 0.2rem;
+  color: var(--clay);
+  content: "+";
+  font:
+    400 1.4rem/1 "Source Sans 3",
+    system-ui,
+    sans-serif;
+}
+
+details[open] summary::after {
+  content: "−";
+}
+
+details p {
+  margin: 0.65rem 0 0;
+  color: var(--muted);
+}
+
+.quote {
+  max-width: 46rem;
+  margin: 2rem 0;
+  padding: 0.35rem 0 0.35rem 1.35rem;
+  border-left: 3px solid var(--gold);
+  color: var(--muted);
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+footer {
+  margin-top: 4.5rem;
+  padding: 1.6rem 0 2rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font:
+    400 0.92rem/1.5 "Source Sans 3",
+    system-ui,
+    sans-serif;
+}
+
+@media (max-width: 42rem) {
+  .wrap {
+    width: min(100% - 2rem, 68rem);
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+    min-height: 0;
+    padding-block: 3.4rem 2rem;
+  }
+
+  .hero-art {
+    width: min(78%, 18rem);
+    margin-top: 0.8rem;
+  }
+
+  nav .wrap {
+    gap: 1.25rem;
+    padding-block: 0.8rem;
+  }
+
+  section {
+    padding-top: 3.2rem;
+  }
+
+  section + section {
+    margin-top: 1.8rem;
+  }
+
+  dl.facts div {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
